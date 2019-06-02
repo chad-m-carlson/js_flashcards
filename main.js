@@ -32,14 +32,24 @@ $(document).ready( function() {
   })
 
   $(document).on('click', '#delete', function() {
-    function remove(array, element) {
-      debugger
-      const index = array.indexOf(element);
-      array.splice(index, 1);
-      debugger
-    }
-// THIS ISN"T REMOVING ITEM FROM ARRAY ALLCARDS
-    remove(allCards, this.parentElement.childNodes[0].childNodes[0].innerText);
+    // function remove(array, element) {
+    //   const index = array.indexOf(element);
+    //   array.splice(index, 1);
+    // }
+    // for (const item of allCards) {
+    //   if ((Object.values(item.title).join('')) === this.parentElement.childNodes[0].childNodes[0].innerText){
+    //     console.log(index)
+    //   }
+    // }
+    let index = allCards.findIndex(x => x.title === this.parentElement.childNodes[0].childNodes[0].innerText)
+
+    console.log(index);
+
+    allCards.splice(index, 1)
+    console.log(allCards)
+    
+
+    // remove(allCards, this.parentElement.childNodes[0].childNodes[0].innerText);
     $(this.parentElement).remove();
   })
 
